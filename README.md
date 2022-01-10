@@ -6,7 +6,11 @@
 
 最终将处理结果用xlwings输出Excel文件，输出词频统计结果为txt文件，并使用wordcloud生成云图
 
-依赖：
+## 示例云图：
+
+![wordcloud.png](./example/wordcloud.png)
+
+## 依赖：
 
 ```
 requests, bs4, xlwings, wordcloud
@@ -14,7 +18,7 @@ requests, bs4, xlwings, wordcloud
 
 同时提供jupyter notebook和导出的py文件
 
-用法：
+## 用法：
 
 更换main()中keyword为目标关键词后运行，即可得到titles.xlsx,  stat.txt,  wordcloud.png
 

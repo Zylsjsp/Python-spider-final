@@ -74,7 +74,10 @@ def statistics():
         for col in srtd:
             f.write(col[0]+','+str(col[1])+'\n')
     w=wordcloud.WordCloud(width=1024, height=768, mode="RGBA", background_color=None)
-    w.generate_from_frequencies(kv)
+    ukv=dict()
+    for k,v in kv.items():
+        ukv[k.upper()]=v
+    w.generate_from_frequencies(ukv)
     w.to_file("wordcloud.png")
     
 
@@ -85,7 +88,7 @@ def statistics():
 def main():
     url_start="https://dblp.uni-trier.de/db/conf/cvpr/cvpr"
     url_end=".html"
-    keyword="unsupervised"
+    keyword="unsupervised" # 爬取（筛选）关键词
     path="titles.xlsx"
     global lst
     for y in years:
@@ -93,7 +96,7 @@ def main():
         html=getHTMLText(url_start+str(y)+url_end)
         fillArtcList(ulist, html)
         plist=checkKeyword(ulist, keyword)
-        print("{0} 年包含\"{1}\"的论文共有{2:^6}篇\n".format(y, keyword, len(plist)))
+        print("{0} 年标题包含\"{1}\"的论文共有{2:^6}篇\n".format(y, keyword, len(plist)))
         lst.append(plist)
     xlsxWrite(path)
     statistics()
