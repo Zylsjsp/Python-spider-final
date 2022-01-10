@@ -64,7 +64,7 @@ def statistics():
                     kv[word]+=1
                 else:
                     kv[word]=1
-            for junk in ['a', 'an', 'the', 'of', 'for', 'in', 'on', 'by', 'with', 'from', 'and']:
+            for junk in ['a', 'an', 'the', 'of', 'for', 'in', 'on', 'by', 'with', 'from', 'and', 'to']:
                 try:
                     del kv[junk]
                 except:
